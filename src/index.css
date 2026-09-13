@@ -5,6 +5,7 @@
 html, body, #root { width: 100%; height: 100%; height: 100dvh; margin: 0; overflow: hidden; }
 button { font: inherit; }
 .game-shell { position: relative; width: 100%; height: 100%; min-height: 520px; isolation: isolate; background: radial-gradient(circle at 50% 45%, rgba(45, 111, 86, .16), transparent 42%), #07100e; }
+.game-shell:fullscreen, .game-shell:-webkit-full-screen { width: 100%; height: 100%; height: 100dvh; overflow: hidden; background-color: #07100e; }
 .app-content, .game-content { position: absolute; inset: 0; }
 .game-shell::before { position: absolute; inset: 0; z-index: 1; pointer-events: none; content: ''; background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(to bottom, black, transparent 80%); }
 .scene { position: absolute; inset: 0; }
@@ -31,6 +32,7 @@ button { font: inherit; }
 .hud-actions button { display: flex; align-items: center; gap: 8px; padding: 11px 16px; border-radius: 10px; font-size: 13px; }
 .hud-actions button.secondary-action { border: 1px solid rgba(255,255,255,.14); color: #c2cec8; background: rgba(10,26,21,.72); }
 .hud-actions button.secondary-action:hover { color: #fff; background: rgba(24,54,44,.9); }
+.hud-actions button.fullscreen-action.is-active { border-color: rgba(112,214,170,.55); color: #9be0c1; background: rgba(27,69,54,.88); }
 .hud-actions button:hover, .victory-card button:hover { transform: translateY(-2px); background: #fff; }
 .hud-actions svg { width: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .tower-controls { position: absolute; z-index: 5; left: 50%; bottom: 28px; display: flex; gap: clamp(18px, 8vw, 130px); transform: translateX(-50%); pointer-events: none; }
@@ -118,7 +120,7 @@ button { font: inherit; }
   .stats strong { margin-top: 1px; font-size: 17px; }
   .hud-actions { grid-column: auto; grid-row: auto; }
   .hud-actions { gap: 6px; }
-  .hud-actions button { min-width: 44px; min-height: 40px; justify-content: center; padding: 8px 10px; font-size: 0; }
+  .hud-actions button { min-width: 44px; min-height: 44px; justify-content: center; padding: 8px 10px; font-size: 0; touch-action: manipulation; }
   .hud-actions button svg { width: 18px; }
   .tower-controls { width: min(70%, 560px); bottom: max(6px, env(safe-area-inset-bottom)); justify-content: space-between; gap: 14px; }
   .tower-controls button { width: min(30%, 130px); min-width: 88px; min-height: 44px; padding: 5px 8px; touch-action: manipulation; }
